@@ -4,7 +4,7 @@
   "description": "Ever Hour TypeScript Module",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "NODE_ENV= jest --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
@@ -16,19 +16,23 @@
   "author": "David Fradel",
   "license": "MIT",
   "devDependencies": {
+    "@types/config": "^0.0.36",
     "@types/jest": "^26.0.14",
+    "chai": "^4.2.0",
     "jest": "^26.4.2",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.1-rc"
   },
   "dependencies": {
+    "@types/chai": "^4.2.12",
     "@types/lodash": "^4.14.161",
     "@types/url-join": "^4.0.0",
     "@types/url-template": "^2.0.28",
     "axios": "^0.20.0",
+    "config": "^3.3.2",
     "lodash": "^4.17.20",
     "url-join": "^4.0.1",
     "url-template": "^2.0.8"

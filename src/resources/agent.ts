@@ -2,7 +2,7 @@ import urlJoin from 'url-join';
 import template from 'url-template';
 import axios, { AxiosRequestConfig } from 'axios';
 import { pick, omit, isUndefined, last } from 'lodash';
-import { EverHourClient } from '../client';
+import { EverHourClient } from '..';
 
 // constants
 const SLASH = '/';
@@ -167,7 +167,7 @@ export class Agent {
             ...this.requestConfig,
             url,
             headers: {
-                Authorization: `bearer ${this.client.getAccessToken()}`,
+                'X-Api-Key': `${this.client.getAccessToken()}`,
             },
         };
 

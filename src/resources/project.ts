@@ -1,5 +1,5 @@
 import Resource from './resource';
-import { EverHourClient } from '../client';
+import { EverHourClient } from '..';
 import ProjectRepresentation from '../defs/project';
 import SectionRepresentation from '../defs/section';
 import TaskRepresentation from '../defs/task';
@@ -15,7 +15,7 @@ export interface ProjectQuery {
     username?: string;
 }
 
-export class Projects extends Resource<{ realm?: string }> {
+export class Projects extends Resource {
     public find = this.makeRequest<ProjectQuery, ProjectRepresentation[]>({
         method: 'GET',
     });

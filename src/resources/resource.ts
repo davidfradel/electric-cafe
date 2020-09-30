@@ -1,4 +1,4 @@
-import { EverHourClient } from '../client';
+import { EverHourClient } from '..';
 import { Agent, RequestArgs } from './agent';
 
 export default class Resource<ParamType = {}> {
