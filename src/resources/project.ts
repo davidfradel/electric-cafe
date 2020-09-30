@@ -16,6 +16,11 @@ export interface ProjectQuery {
 }
 
 export class Projects extends Resource {
+
+    /**
+    * Projects
+    */
+
     public find = this.makeRequest<ProjectQuery, ProjectRepresentation[]>({
         method: 'GET',
     });
@@ -24,10 +29,6 @@ export class Projects extends Resource {
         method: 'POST',
         returnResourceIdInLocationHeader: { field: 'id' },
     });
-
-    /**
-     * Single user
-     */
 
     public findOne = this.makeRequest<{ id: string }, ProjectRepresentation>({
         method: 'GET',
@@ -52,10 +53,35 @@ export class Projects extends Resource {
         urlParamKeys: ['id'],
     });
 
+
+    /**
+    * Sections
+    */
+
+    public listSection = this.makeRequest<{ id: string }, SectionRepresentation[]>({
+        method: 'GET',
+        path: '/{id}/sections',
+        urlParamKeys: ['id'],
+        payloadKey: 'sections',
+    });
+
+    /**
+    * Tasks
+    */
+
+    public listTask = this.makeRequest<{ id: string }, TaskRepresentation[]>({
+        method: 'GET',
+        path: '/{id}/tasks',
+        urlParamKeys: ['id'],
+        payloadKey: 'sections',
+    });
+
     constructor(client: EverHourClient) {
         super(client, {
             path: '/projects',
             getBaseUrl: () => client.baseUrl,
         });
     }
+
+
 }

@@ -1,5 +1,8 @@
 import { defaultBaseUrl, defaultApiKey } from './utils/constants';
 import { Projects } from './resources/project';
+import { Sections } from './resources/section';
+import { Tasks } from './resources/task';
+
 import { AxiosRequestConfig } from 'axios';
 
 export interface ConnectionConfig {
@@ -11,6 +14,8 @@ export interface ConnectionConfig {
 export class EverHourClient {
     // Resources
     public projects: Projects;
+    public sections: Sections;
+    public tasks: Tasks;
 
     public baseUrl: string;
     private apiKey: string;
@@ -24,6 +29,8 @@ export class EverHourClient {
 
         // Initialize resources
         this.projects = new Projects(this);
+        this.sections = new Sections(this);
+        this.tasks = new Tasks(this);
     }
 
 
